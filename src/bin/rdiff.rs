@@ -4,7 +4,7 @@
 
 #[macro_use]
 extern crate clap;
-extern crate rdiff;
+extern crate delta_patch;
 
 use std::ffi::OsStr;
 use std::fs::File;
@@ -13,7 +13,7 @@ use std::io::{Result, stdin, stdout};
 
 use clap::{AppSettings, Arg, ArgMatches, SubCommand};
 
-use rdiff::mksum::{SignatureOptions, generate_signature};
+use delta_patch::mksum::{SignatureOptions, generate_signature};
 
 pub fn main() {
     let app = app_from_crate!()
@@ -56,7 +56,7 @@ fn signature_cmd(subm: &ArgMatches) -> Result<()> {
 }
 
 /// Open a file from a file name for input, treating `-` as stdin.
-fn open_input(n: &OsStr) -> Result<Box<Read>> {
+fn open_input(n: &OsStr) -> Result<Box<dyn Read>> {
     match n.to_str() {
         Some("-") => Ok(Box::new(stdin())),
         _ => match File::open(n) {
@@ -70,7 +70,7 @@ fn open_input(n: &OsStr) -> Result<Box<Read>> {
 }
 
 /// Open a file from a file name for output, treating `-` as stdout.
-fn open_output(n: &OsStr) -> Result<Box<Write>> {
+fn open_output(n: &OsStr) -> Result<Box<dyn Write>> {
     match n.to_str() {
         Some("-") => Ok(Box::new(stdout())),
         _ => match File::create(n) {
