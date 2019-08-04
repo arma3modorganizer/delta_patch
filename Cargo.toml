@@ -1,6 +1,6 @@
 [package]
 name = "delta_patch"
-version = "0.1.0"
+version = "0.1.1-alpha.0"
 authors = ["Martin Pool <mbp@sourcefrog.net>", "Ferdinand Linnenberg <scarjit@aol.com>"]
 description = "Generate and apply diffs relative to file signatures, like rdiff. (Rust version.)"
 repository = "https://github.com/arma3modorganizer/delta_patch"
