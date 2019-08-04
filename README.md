@@ -1,4 +1,4 @@
-# MO-Libary (WIP)
+# delta_patch
 
 [![dependency status](https://deps.rs/repo/github/arma3modorganizer/delta_patch/status.svg)](https://deps.rs/repo/github/arma3modorganizer/delta_patch)
 [![Travis CI](https://travis-ci.org/arma3modorganizer/delta_patch.svg?branch=master)](https://travis-ci.org/arma3modorganizer/delta_patch)
