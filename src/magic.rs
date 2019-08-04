@@ -19,9 +19,6 @@ pub enum DeltaFormat {
 /// Signature file formats.
 #[derive(Debug, Copy, Clone)]
 pub enum SignatureFormat {
-    /// A signature file with MD4 magic. (Deprecated because insecure).
-    Md4Sig = 0x72730136,   // "rs\x016"
-
     /// A signature file with BLAKE2 strong signatures. (Current.)
     Blake2Sig = 0x72730137,  // "rs\x017"
 }

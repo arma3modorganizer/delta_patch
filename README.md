@@ -1,77 +1,21 @@
-# rdiff-rs [pre-alpha]
+# MO-Libary (WIP)
 
-rdiff is a tool and library to generate binary deltas against a signature summarizing
-the contents of an old file. The deltas can only be applied to the exact old file
-contents from which they're generated.
+[![dependency status](https://deps.rs/repo/github/arma3modorganizer/delta_patch/status.svg)](https://deps.rs/repo/github/arma3modorganizer/delta_patch)
+[![Travis CI](https://travis-ci.org/arma3modorganizer/delta_patch.svg?branch=master)](https://travis-ci.org/arma3modorganizer/delta_patch)
+[![Build status](https://ci.appveyor.com/api/projects/status/w4un3g556ny51i1l?svg=true)](https://ci.appveyor.com/project/Scarjit/delta_patch)
+[![Crates.io](https://img.shields.io/crates/v/delta_patch)](https://crates.io/crates/delta_patch)
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arma3modorganizer/delta_patch/blob/master/LICENSE)
+[![Coverage Status](https://coveralls.io/repos/github/arma3modorganizer/MO-Libary/badge.svg?branch=master)](https://coveralls.io/github/arma3modorganizer/delta_patch?branch=master)
 
-This is the start of a pure Rust implementation of rdiff, both the command line
-tool and the library.
-The original C implementation is at https://github.com/librsync/librsync.
+Fork of [rdiff-rs](https://github.com/sourcefrog/rdiff-rs).
 
-rdiff uses the same algorithm, but not the same format, as rsync.
+This version only contains the bindings to be used as an cargo package.
+It also removed the option to use MD4 hash.
 
-The plan is to provide this in four layers:
+## Licenses
+delta_patch is developed under [MIT License](https://github.com/arma3modorganizer/MO-Libary/LICENSE).
 
-* `src/`
-  (crate `rdiff`):
-  rdiff algorithm and format implemented in pure Rust, including
-  unit tests.
-
-* `rdiff` binary from `src/main.rs`:
-    a command line tool compatible in format and command line syntax with
-    `rdiff` from C librsync.
-
-* `capi/`, crate `rdiff-capi`:
-    A C API backed by the Rust implementation.
-  * The same as the existing librsync C API except where this is
-    infeasible or the existing API is very problematic.
-  * Includes a C header file, forked from the C API's `librsync.h`.
-  * Build with Cargo(?)
-  * Includes tests, in C, for the wrapper and implementation.
-
-* `crosstest`: check interoperability between C and Rust
-  versions of `rdiff`:
-  1. They produce the exact same signatures
-  2. They can consume each others' deltas to produce the same resulting
-     new file.
-  3. (It's not required they produce the exact same delta.)
-
-More plans: <https://github.com/sourcefrog/rdiff-rs/wiki>
-
-## Installation
-
-First, install the Rust toolchain from https://rustup.rs/.
-
-You may then either:
-
-1. Run `cargo build --release` which will create an rdiff binary (and library) in the `target/release` directory.
-
-2. Or, run `cargo install -f` which will also install those binaries into `~/.cargo/bin` or something similar.
-
-## License
-
-Copyright 2015-2018 Martin Pool.
-
-Permission is hereby granted, free of charge, to any
-person obtaining a copy of this software and associated
-documentation files (the "Software"), to deal in the
-Software without restriction, including without
-limitation the rights to use, copy, modify, merge,
-publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software
-is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice
-shall be included in all copies or substantial portions
-of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
-ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
-TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
-SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
-IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-DEALINGS IN THE SOFTWARE.
+## Credits
+ - [Jetbrains](https://www.jetbrains.com/) for CLion <3
+ - [Martin Pool](https://github.com/sourcefrog) for rdiff-rs
+ 
